@@ -25,24 +25,6 @@ names={}
 for i in range(0, N):
     names[i]=nameslib.get_full_name()
 
-def make_friends():
-    relations = {}
-    for personnr in range(0,N):
-        friends = []
-        nrfriends=random.randint(M1,M2)
-        while len(friends)<nrfriends:
-
-            friend = random.randint(0,N-1)
-            if friend == personnr:
-                continue
-            if friend in friends:
-                continue
-            friends.append(friend)
-        relations[personnr]=friends
-
-    return relations
-
-friends = make_friends()
 givennrs = set()
 
 def generatenr():
@@ -70,6 +52,35 @@ def generate_call():
 
     return names[A],names[B],personnrs[A],personnrs[B]
 
+def make_friends():
+    relations = {}
+    for personnr in range(0,N):
+        friends = []
+        nrfriends=random.randint(M1,M2)
+        while len(friends)<nrfriends:
+
+            friend = random.randint(0,N-1)
+            if friend == personnr:
+                continue
+            if friend in friends:
+                continue
+            friends.append(friend)
+        relations[personnr]=friends
+
+    return relations
+
+def make_phonebook(relations):
+    for personnr in range(0,N):
+        relation = relations[personnr]
+        phonebook = {}
+        while friend in relation:
+            phonebook[friend]=personnrs[friend]
+        phonebooks[personnr]=phonebook
+
+    return phonebooks
+
+friends = make_friends()
+
 def get_cdr_data():
 
     records = []
@@ -89,7 +100,6 @@ def get_cdr_data():
 if __name__ == '__main__':
     for cdr in get_cdr_data():
         print(cdr)
-
 
 # print(make_friends())
 
