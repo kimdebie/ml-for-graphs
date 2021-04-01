@@ -31,7 +31,7 @@ def generatenr():
     nr = random.randint(3160000000,3169999999)
     if nr in givennrs:
         return generatenr()
-    return "%d" % nr
+    return "+" + "%d" % nr
 
 personnrs = {}
 
