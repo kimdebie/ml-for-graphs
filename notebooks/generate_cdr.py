@@ -35,13 +35,14 @@ def make_friends():
             friend = random.randint(0,N-1)
             if friend == personnr:
                 continue
-            if names[friend] in friends:
+            if friend in friends:
                 continue
-            friends.append(names[friend])
+            friends.append(friend)
         relations[personnr]=friends
 
     return relations
 
+friends = make_friends()
 givennrs = set()
 
 def generatenr():
@@ -63,9 +64,10 @@ def update_nrs():
 
 def generate_call():
     A = random.randint(0, N-1)
-    B = random.randint(0, N-1)
-    if (A == B):
-        return generate_call()
+    friendoptions = friends[A]
+    friendidx = random.randint(0, len(friendoptions)-1)
+    B = friendoptions[friendidx]
+
     return names[A],names[B],personnrs[A],personnrs[B]
 
 def get_cdr_data():
@@ -85,7 +87,8 @@ def get_cdr_data():
     return records
 
 if __name__ == '__main__':
-    get_cdr_data()
+    for cdr in get_cdr_data():
+        print(cdr)
 
 
 # print(make_friends())
