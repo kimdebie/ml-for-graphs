@@ -25,24 +25,6 @@ names={}
 for i in range(0, N):
     names[i]=nameslib.get_full_name()
 
-def make_friends():
-    relations = {}
-    for personnr in range(0,N):
-        friends = []
-        nrfriends=random.randint(M1,M2)
-        while len(friends)<nrfriends:
-
-            friend = random.randint(0,N-1)
-            if friend == personnr:
-                continue
-            if friend in friends:
-                continue
-            friends.append(friend)
-        relations[personnr]=friends
-
-    return relations
-
-friends = make_friends()
 givennrs = set()
 
 def generatenr():
@@ -62,7 +44,7 @@ def update_nrs():
         personnr = random.randint(0,N-1)
         personnrs[personnr] = generatenr()
 
-def generate_call():
+def generate_call_no_phonebook():
     A = random.randint(0, N-1)
     friendoptions = friends[A]
     friendidx = random.randint(0, len(friendoptions)-1)
@@ -70,11 +52,56 @@ def generate_call():
 
     return names[A],names[B],personnrs[A],personnrs[B]
 
+def generate_call_with_phonebook():
+    A = random.randint(0, N-1)
+    friendoptions = friends[A]
+    friendidx = random.randint(0, len(friendoptions)-1)
+    B = friendoptions[friendidx]
+    phonebook = phonebooks[A]
+    Bnr = phonebook[B]
+    phonebook[B] = personnrs[B]  #After a call to a person the caller will update its phonebook
+    return names[A], names[B], personnrs[A], Bnr
+
+generate_call = generate_call_with_phonebook
+
+def make_friends():
+    relations = {}
+    for personnr in range(0,N):
+        friends = []
+        nrfriends=random.randint(M1,M2)
+        while len(friends)<nrfriends:
+
+            friend = random.randint(0,N-1)
+            if friend == personnr:
+                continue
+            if friend in friends:
+                continue
+            friends.append(friend)
+        relations[personnr]=friends
+
+    return relations
+
+def make_phonebook(relations):
+    phonebooks = {}
+    for personnr in range(0,N):
+        relation = relations[personnr]
+        phonebook = {}
+        for friend in relation:
+            phonebook[friend]=personnrs[friend]
+        phonebooks[personnr]=phonebook
+
+    return phonebooks
+
+friends = make_friends()
+
+
 def get_cdr_data():
+    global phonebooks
 
     records = []
 
     person_nrs()
+    phonebooks = make_phonebook(friends)
     for i in range(0,1000):
         records.append(( i ,) + generate_call())
     person_nrs()
@@ -89,7 +116,6 @@ def get_cdr_data():
 if __name__ == '__main__':
     for cdr in get_cdr_data():
         print(cdr)
-
 
 # print(make_friends())
 
