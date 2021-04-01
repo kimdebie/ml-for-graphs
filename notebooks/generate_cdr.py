@@ -64,6 +64,8 @@ def update_nrs():
 def generate_call():
     A = random.randint(0, N-1)
     B = random.randint(0, N-1)
+    if (A == B):
+        return generate_call()
     return names[A],names[B],personnrs[A],personnrs[B]
 
 def get_cdr_data():
