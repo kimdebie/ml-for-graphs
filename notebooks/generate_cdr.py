@@ -19,7 +19,9 @@ random.seed(42)
 N = 20
 M1 = 2
 M2 = 4
-REPLACE = 1
+REPLACE = 2                  # Number of persons that change phone number while shuffeling
+NRSHUFFLES = 100             # Total number of calls is NRSHUFFLES*CALLSBETWEENSHUFFLE
+CALLSBETWEENSHUFFLE = 30
 
 names={}
 for i in range(0, N):
@@ -95,7 +97,7 @@ def make_phonebook(relations):
 friends = make_friends()
 
 
-def get_cdr_data():
+def get_cdr_data_groups():
     global phonebooks
 
     records = []
@@ -112,6 +114,24 @@ def get_cdr_data():
         records.append(( i ,) + generate_call())
 
     return records
+
+def get_cdr_data_soft():
+    global phonebooks
+
+    records = []
+
+    person_nrs()
+    phonebooks = make_phonebook(friends)
+    cnt = 0
+    for shuffels in range (0, NRSHUFFLES):
+        for i in range(0, CALLSBETWEENSHUFFLE):
+            records.append(( cnt ,) + generate_call())
+            cnt = cnt + 1
+        update_nrs()
+
+    return records
+
+get_cdr_data = get_cdr_data_soft
 
 if __name__ == '__main__':
     for cdr in get_cdr_data():
