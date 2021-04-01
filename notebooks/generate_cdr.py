@@ -14,6 +14,8 @@ During a certain amount of time they will make calls.
 import random
 import names as nameslib
 
+random.seed(42)
+
 N = 20
 M1 = 2
 M2 = 4
@@ -64,16 +66,24 @@ def generate_call():
     B = random.randint(0, N-1)
     return names[A],names[B],personnrs[A],personnrs[B]
 
-person_nrs()
-for i in range(0,1000):
-    print (( i ,) + generate_call())
-person_nrs()
-for i in range(1000,2000):
-    print (( i ,) + generate_call())
-person_nrs()
-for i in range(2000,3000):
-    print (( i ,) + generate_call())
+def get_cdr_data():
 
+    records = []
+
+    person_nrs()
+    for i in range(0,1000):
+        records.append(( i ,) + generate_call())
+    person_nrs()
+    for i in range(1000,2000):
+        records.append(( i ,) + generate_call())
+    person_nrs()
+    for i in range(2000,3000):
+        records.append(( i ,) + generate_call())
+
+    return records
+
+if __name__ == '__main__':
+    get_cdr_data()
 
 
 # print(make_friends())
