@@ -1,0 +1,1 @@
+stellargraph[demos,igraph]
