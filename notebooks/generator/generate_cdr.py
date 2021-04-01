@@ -14,6 +14,8 @@ During a certain amount of time they will make calls.
 import random
 import names as nameslib
 
+random.seed(42)
+
 N = 20
 M1 = 2
 M2 = 4
@@ -62,6 +64,8 @@ def update_nrs():
 def generate_call():
     A = random.randint(0, N-1)
     B = random.randint(0, N-1)
+    if (A == B):
+        return generate_call()
     return names[A],names[B],personnrs[A],personnrs[B]
 
 person_nrs()
