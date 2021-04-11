@@ -1,0 +1,163 @@
+Uitvoer van Process call details.ipynb: 10 shuffels, 300 calls, word3vec met 48 embedded na 250K epochs
+
+
+0. Friends of James Lawrence:Maxine Kiefer, Heather Morris, Ricky Rosenberg, William Lee, Ken Walson, William Drake, 
+The following persons are similar to James Lawrence:
+James Lawrence7 (0.344027)
+James Lawrence4 (0.318841)
+James Lawrence8 (0.304564)
+Ken Walson (0.267520)
+William Drake1 (0.244463)
+
+1. Friends of William Lee:James Lawrence, Ricky Rosenberg, Tamika Nieto, 
+The following persons are similar to William Lee:
+Ricky Rosenberg (0.400014)
+Sandra Goodwin5 (0.272043)
+Sandra Goodwin (0.256381)
+James Lawrence4 (0.236591)
+Tamika Nieto (0.227711)
+
+2. Friends of Fred Jones:Susan Wong, Ronnie Cook, Randy Howard, Jennifer Harvey, 
+The following persons are similar to Fred Jones:
+Randy Howard (0.366364)
+Jessica Weathers (0.215182)
+Ronnie Cook4 (0.200506)
+Ronnie Cook (0.185997)
+Susan Wong0 (0.170762)
+
+3. Friends of Charles Whaley:Ricky Rosenberg, Ronnie Cook, Martha Batista, Megan Towne, Tamika Nieto, 
+The following persons are similar to Charles Whaley:
+Martha Batista (0.391409)
+Charles Whaley0 (0.387291)
+Ronnie Cook (0.222988)
+Ricky Rosenberg (0.211865)
+Tamika Nieto (0.184574)
+
+4. Friends of Willie Kahl:Ken Walson, Susan Wong, Heather Morris, Maxine Kiefer, 
+The following persons are similar to Willie Kahl:
+Ken Walson (0.395980)
+Heather Morris (0.293812)
+Susan Wong6 (0.254284)
+Heather Morris2 (0.242821)
+Maxine Kiefer (0.221126)
+
+5. Friends of Jessica Weathers:Susan Wong, Randy Howard, Antonio Tweed, Megan Towne, Jennifer Harvey, 
+The following persons are similar to Jessica Weathers:
+Antonio Tweed1 (0.322382)
+Antonio Tweed (0.320788)
+Randy Howard (0.273055)
+William Drake1 (0.229365)
+William Drake (0.222091)
+
+6. Friends of Ronnie Cook:Fred Jones, Charles Whaley, Heather Morris, 
+The following persons are similar to Ronnie Cook:
+Ronnie Cook8 (0.518410)
+Ronnie Cook4 (0.491138)
+Heather Morris (0.314681)
+Charles Whaley (0.222988)
+Fred Jones (0.185997)
+
+7. Friends of Heather Morris:James Lawrence, Willie Kahl, Ronnie Cook, 
+The following persons are similar to Heather Morris:
+Heather Morris2 (0.382336)
+Ronnie Cook (0.314681)
+Ken Walson (0.308780)
+Willie Kahl (0.293812)
+William Drake1 (0.203160)
+
+8. Friends of Susan Wong:Fred Jones, Willie Kahl, Jessica Weathers, Martha Batista, 
+The following persons are similar to Susan Wong:
+Susan Wong0 (0.512726)
+Randy Howard (0.441529)
+Susan Wong6 (0.435536)
+Martha Batista (0.275441)
+Willie Kahl (0.159931)
+
+9. Friends of Tamika Nieto:William Lee, Charles Whaley, Sandra Goodwin, 
+The following persons are similar to Tamika Nieto:
+Tamika Nieto2 (0.498800)
+Tamika Nieto6 (0.386269)
+Sandra Goodwin (0.380691)
+Antonio Tweed (0.275699)
+William Lee (0.227711)
+
+10. Friends of Ricky Rosenberg:James Lawrence, William Lee, Charles Whaley, Martha Batista, 
+The following persons are similar to Ricky Rosenberg:
+William Lee (0.400014)
+Martha Batista (0.328855)
+Martha Batista3 (0.328018)
+Charles Whaley0 (0.243593)
+Tamika Nieto (0.214480)
+
+11. Friends of Jennifer Harvey:Jessica Weathers, Antonio Tweed, William Drake, Fred Jones, 
+The following persons are similar to Jennifer Harvey:
+Antonio Tweed1 (0.322231)
+Antonio Tweed (0.308674)
+Megan Towne (0.258013)
+William Drake5 (0.244364)
+Randy Howard (0.223028)
+
+12. Friends of Megan Towne:Charles Whaley, Jessica Weathers, William Drake, 
+The following persons are similar to Megan Towne:
+Megan Towne7 (0.416229)
+Jennifer Harvey (0.258013)
+William Drake (0.205232)
+William Drake1 (0.204786)
+Jessica Weathers (0.203106)
+
+13. Friends of Antonio Tweed:Jessica Weathers, Jennifer Harvey, Sandra Goodwin, 
+The following persons are similar to Antonio Tweed:
+Antonio Tweed1 (0.464868)
+Sandra Goodwin (0.323951)
+Jessica Weathers (0.320788)
+Jennifer Harvey (0.308674)
+Tamika Nieto (0.275699)
+
+14. Friends of Ken Walson:Willie Kahl, Maxine Kiefer, James Lawrence, 
+The following persons are similar to Ken Walson:
+Maxine Kiefer (0.764587)
+Willie Kahl (0.395980)
+Heather Morris (0.308780)
+Heather Morris2 (0.298083)
+James Lawrence (0.267520)
+
+15. Friends of Martha Batista:Charles Whaley, Susan Wong, Maxine Kiefer, Ricky Rosenberg, 
+The following persons are similar to Martha Batista:
+Charles Whaley (0.391409)
+Martha Batista3 (0.356187)
+Ricky Rosenberg (0.328855)
+Susan Wong (0.275441)
+Charles Whaley0 (0.177989)
+
+16. Friends of Sandra Goodwin:Antonio Tweed, Tamika Nieto, 
+The following persons are similar to Sandra Goodwin:
+Tamika Nieto (0.380691)
+Sandra Goodwin5 (0.350441)
+Antonio Tweed (0.323951)
+Antonio Tweed1 (0.319652)
+Tamika Nieto2 (0.317673)
+
+17. Friends of Maxine Kiefer:James Lawrence, Willie Kahl, Ken Walson, Martha Batista, 
+The following persons are similar to Maxine Kiefer:
+Ken Walson (0.764587)
+Willie Kahl (0.221126)
+Susan Wong0 (0.207802)
+Heather Morris (0.188594)
+Martha Batista3 (0.186544)
+
+18. Friends of Randy Howard:Fred Jones, Jessica Weathers, 
+The following persons are similar to Randy Howard:
+Susan Wong (0.441529)
+Susan Wong6 (0.415773)
+Susan Wong0 (0.407189)
+Fred Jones (0.366364)
+Jessica Weathers (0.273055)
+
+19. Friends of William Drake:Jennifer Harvey, Megan Towne, James Lawrence, 
+The following persons are similar to William Drake:
+William Drake1 (0.657449)
+William Drake3 (0.601944)
+William Drake5 (0.344086)
+James Lawrence (0.231892)
+Jessica Weathers (0.222091)
+
