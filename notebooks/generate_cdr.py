@@ -20,8 +20,8 @@ N = 20
 M1 = 2
 M2 = 4
 REPLACE = 2                  # Number of persons that change phone number while shuffeling
-NRSHUFFLES = 100             # Total number of calls is NRSHUFFLES*CALLSBETWEENSHUFFLE
-CALLSBETWEENSHUFFLE = 30
+NRSHUFFLES = 10           # Total number of calls is NRSHUFFLES*CALLSBETWEENSHUFFLE
+CALLSBETWEENSHUFFLE = 300
 
 names={}
 for i in range(0, N):
@@ -36,15 +36,21 @@ def generatenr():
     return "+" + "%d" % nr
 
 personnrs = {}
+number2name = {}
+name2number = {}
 
 def person_nrs():
     for personnr in range(0, N):
         personnrs[personnr] = generatenr()
+        number2name[personnrs[personnr]]=names[personnr]
+        name2number[names[personnr]]=personnrs[personnr]
 
-def update_nrs():
+def update_nrs(shuffels):
     for personcnt in range(0, REPLACE):
         personnr = random.randint(0,N-1)
         personnrs[personnr] = generatenr()
+        number2name[personnrs[personnr]]=(names[personnr]+'%d'% shuffels)
+        name2number[(names[personnr]+'%d'% shuffels )]=personnrs[personnr]
 
 def generate_call_no_phonebook():
     A = random.randint(0, N-1)
@@ -69,7 +75,16 @@ generate_call = generate_call_with_phonebook
 def make_friends():
     relations = {}
     for personnr in range(0,N):
-        friends = []
+
+        # 8< if A is a friend of B lets make sure B is a friend of A
+
+        if personnr in relations.keys():
+            friends = relations[personnr]
+        else:
+            friends = []
+
+        # 8<
+
         nrfriends=random.randint(M1,M2)
         while len(friends)<nrfriends:
 
@@ -79,7 +94,26 @@ def make_friends():
             if friend in friends:
                 continue
             friends.append(friend)
+
+            # 8< if A is a friend of B lets make sure B is a friend of A
+
+            if friend not in relations.keys():
+                relations[friend] = []
+            relations[friend].append(personnr)
+
+            # 8< end
+
         relations[personnr]=friends
+
+    return relations
+
+def make_friend_pairs():
+    relations = {}
+    for personnr in range(0,N-1,2):
+        relations[personnr]=[]
+        relations[personnr+1]=[]
+        relations[personnr].append(personnr+1)
+        relations[personnr+1].append(personnr)
 
     return relations
 
@@ -96,6 +130,14 @@ def make_phonebook(relations):
 
 friends = make_friends()
 
+# simple version to check if learning is working correctly (only friend pairs)
+#friends = make_friend_pairs()
+
+# print the following so we can copy paste it to our notebook
+
+# print('N =',N)
+# print('friends =',friends)
+# print('names =',names)
 
 def get_cdr_data_groups():
     global phonebooks
@@ -115,6 +157,7 @@ def get_cdr_data_groups():
 
     return records
 
+
 def get_cdr_data_soft():
     global phonebooks
 
@@ -123,11 +166,12 @@ def get_cdr_data_soft():
     person_nrs()
     phonebooks = make_phonebook(friends)
     cnt = 0
+
     for shuffels in range (0, NRSHUFFLES):
         for i in range(0, CALLSBETWEENSHUFFLE):
-            records.append(( cnt ,) + generate_call())
+            records.append(( cnt, )  + generate_call())
             cnt = cnt + 1
-        update_nrs()
+        update_nrs( shuffels )
 
     return records
 
@@ -135,7 +179,11 @@ get_cdr_data = get_cdr_data_soft
 
 if __name__ == '__main__':
     for cdr in get_cdr_data():
-        print(cdr)
+        print(*cdr,sep=",")
 
-# print(make_friends())
+
+# print the following so we can copy paste it to our notebook
+
+# print(number2name)
+# print(name2number)
 
